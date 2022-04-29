@@ -5,6 +5,7 @@ import DatePicker from "react-datepicker";
 
 const Register = () => {
   const navigate = useNavigate();
+  const [dob,setDateOfBirth] = React.useState("")
   const [fname, setFname] = React.useState("");
   const [mname, setMname] = React.useState("");
   const [lname, setLname] = React.useState("");
@@ -40,6 +41,7 @@ const Register = () => {
         city,
         state,
         pin,
+        dob
       }),
     })
       .then((res) => res.json())
@@ -80,7 +82,7 @@ const Register = () => {
     <div className="container">
       <form>
         <fieldset>
-          <legend className="bund">Create Account</legend>
+        <h1>CREATE ACCOUNT</h1>
           <ul>
             <li>
               <label for="Firstname">FirstName: </label>
@@ -118,7 +120,8 @@ const Register = () => {
             </li>
 
             <li>
-              <label for="dob">Date of Birth:(dd/mm/yyyy) </label>
+
+              <label for="dob">Date of Birth:(yyyy-mm-dd) </label>
               <input
                 type="text"
                 id="LastName"
@@ -128,6 +131,7 @@ const Register = () => {
                 value={date}
               />
               {/* <DatePicker id="dob" /> */}
+
             </li>
 
             <li>
@@ -175,6 +179,7 @@ const Register = () => {
             </li>
 
             <li>
+
               <label for="phno">Phone Number</label>
               <input
                 type="text"
@@ -189,12 +194,12 @@ const Register = () => {
 
             <li>
               <section class="light">
-                <h1>Nationality</h1>
+                <h1>NATIONALITY</h1>
 
-                <label className="Indian">
+                <label className="gender">
                   <input
                     type="radio"
-                    name="light"
+                    name="nat"
                     checked
                     onClick={() => {
                       setNationality("Indian");
@@ -204,10 +209,10 @@ const Register = () => {
                   <span class="text">Indian</span>
                 </label>
 
-                <label className="Other">
+                <label className="gender">
                   <input
                     type="radio"
-                    name="light"
+                    name="nat"
                     onClick={() => {
                       setNationality("Other");
                     }}
@@ -217,6 +222,22 @@ const Register = () => {
                 </label>
               </section>
             </li>
+
+
+            <li>
+              <label for="phno">Phone Number</label>
+              <input
+                type="text"
+                id="phno"
+                required
+                onChange={(e) => {
+                  setPhno(e.target.value());
+                }}
+                value={phno}
+              />
+            </li>
+
+          
 
             <li>
               <label for="username">Username:</label>
